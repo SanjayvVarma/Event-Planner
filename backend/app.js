@@ -20,7 +20,14 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/api/v1/message", massageRouter)
+app.get("/", (req, res) => {
+    res.json({
+        success: true,
+        message: "Hello World I am here",
+    })
+})
+
+app.use("/api/v1/message", massageRouter);
 
 dbConnection();
 
